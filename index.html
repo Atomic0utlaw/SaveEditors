@@ -78,6 +78,7 @@
             color: #e0e0e0;
             font-size: 0.8em;
             margin-top: 20px;
+            text-align: center;
         }
 
         .footer a {
@@ -107,10 +108,10 @@
         
         <!-- Hazards Editor Button -->
         <button onclick="downloadFile('XB36Hazards_Launcher_v4.zip')">Download Hazards Editor (.zip)</button>
-
+        <br>
+        
         <!-- No Mans Sky Editor Button -->
         <button onclick="downloadFile('https://github.com/goatfungus/NMSSaveEditor/archive/refs/heads/master.zip')">Download No Mans Sky Editor (.zip)</button>
-
         
         <p>Note: Please ensure any applications that may use or lock the files are closed before launching the editors.</p>
     </div>
@@ -126,8 +127,8 @@
     <script>
         function downloadFile(filename) {
             const link = document.createElement("a");
-            link.href = `path/to/your/files/${filename}`;  // Update with the actual file path
-            link.download = filename;
+            link.href = filename.includes('http') ? filename : `path/to/your/files/${filename}`; // Update with the actual file path
+            link.download = filename.includes('http') ? "" : filename;
             link.click();
         }
         
