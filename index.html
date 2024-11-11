@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <h1>Save Editors</h1>
+
+    <p>A collection of save editors for various games. These tools allow you to modify and customize your save files for a more tailored experience. Note that I am not affiliated with the development of these tools and did not create them.</p>
+
+    <br>
+
+    <div id="main">
+        <p>Click the buttons below to download the save editors:</p>
+        <br>
+        
+        <!-- Tiny Tina's Wonderland Editor Button -->
+        <button onclick="downloadFile('ttwlse1169.7z')">Download Tiny Tina's Wonderland Editor (.7z)</button>
+        <br><br>
+        
+        <!-- Hazards Editor Button -->
+        <button onclick="downloadFile('XB36Hazards_Launcher_v4.zip')">Download Hazards Editor (.zip)</button>
+        <br>
+
+        <p>Note: Please ensure any applications that may use or lock the files are closed before launching the editors.</p>
+    </div>
+    
+    <div id="notSupported" style="display: none;">
+        Your browser does not support the Web Serial API. Try Chrome for full functionality.
+    </div>
+
+    <script>
+        function downloadFile(filename) {
+            const link = document.createElement("a");
+            link.href = `path/to/your/files/${filename}`;  // Update with the actual file path
+            link.download = filename;
+            link.click();
+        }
+        
+        // Check for Web Serial API support
+        if (navigator.serial) {
+            document.getElementById("notSupported").style.display = 'none';
+            document.getElementById("main").style.display = 'block';
+        } else {
+            document.getElementById("notSupported").style.display = 'block';
+            document.getElementById("main").style.display = 'none';
+        }
+    </script>
+
+</body>
+
+</html>
